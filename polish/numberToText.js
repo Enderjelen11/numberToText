@@ -7,6 +7,7 @@ var rl = readline.createInterface({
 });
 
 function numberToText(number) {
+  number = parseInt(number);
   if (number == 0) {
     return "zero";
   } else {
