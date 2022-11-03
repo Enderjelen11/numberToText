@@ -1,5 +1,5 @@
-# numberToText
-generates names of numbers from user input
+# numberToTextjs
+generates names of numbers from user input in javascript
 
 use node js to run
 
