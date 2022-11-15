@@ -1,11 +1,3 @@
-var readline = require("readline");
-const { isConditionalExpression } = require("typescript");
-
-var rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-});
-
 function numberToText(number) {
   number = parseInt(number);
   if (number == 0) {
@@ -79,10 +71,12 @@ function numberToText(number) {
       "biliardy"
     ];
 
-    const array = String(number).split("").reverse();
+    const mainArr = String(number).split("").reverse();
+    const array1 = mainArr.length>4?mainArr:mainArr.slice(0,4);
+    const array2 = mainArr.length>4?mainArr.slice(0,4):[];
     const arr = new Array();
-    for (let i = 0; i < array.length; i += 3) {
-      const chunk = array.slice(i, i + 3);
+    for (let i = 0; i < array1.length; i += 3) {
+      const chunk = array1.slice(i, i + 3);
       arr.push(chunk);
     }
     let resultArr = [];
@@ -122,11 +116,4 @@ function numberToText(number) {
   }
 }
 
-function question(callback) {
-  rl.question(">>podaj liczbę:  ", (number) => {
-    console.log(numberToText(number) + "\n");
-    question();
-  });
-}
-
-question();
+console.log(numberToText(process.env.NUMBER) + "\n");
